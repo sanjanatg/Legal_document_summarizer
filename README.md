@@ -35,7 +35,7 @@ Built with **Gemini API**, **PDF.js**, and **TailwindCSS**, it extracts text fro
    ```bash
    git clone https://github.com/your-username/legal-document-summarizer.git
    cd legal-document-summarizer
-````
+
 
 2. Open `index.html` in a browser
 
@@ -59,14 +59,12 @@ Built with **Gemini API**, **PDF.js**, and **TailwindCSS**, it extracts text fro
   * Court’s reasoning & final order
   * Implications for legal practice
 
----
 
 ## ⚖️ Disclaimer
 
 This tool provides **AI-generated summaries** of legal documents.
 It is **not legal advice**. Please consult a qualified advocate or legal professional for official interpretation.
 
----
 
 ## 🔮 Future Improvements
 
@@ -75,5 +73,5 @@ It is **not legal advice**. Please consult a qualified advocate or legal profess
 * Multi-document batch summarization
 * Fine-tuned models for specific legal domains (e.g., corporate contracts, criminal judgments)
 
-```
+
 
