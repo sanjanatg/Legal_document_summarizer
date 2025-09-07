@@ -3,6 +3,8 @@
 An AI-powered web application that generates structured summaries of Indian legal documents.  
 Built with **Gemini API**, **PDF.js**, and **TailwindCSS**, it extracts text from uploaded PDFs and produces concise summaries focusing on key provisions, clauses, reasoning, and implications.  
 
+<img width="1919" height="881" alt="image" src="https://github.com/user-attachments/assets/4886344e-5dd2-4b74-b122-de9cf9312394" />
+
 ---
 
 ## 🚀 Features  
