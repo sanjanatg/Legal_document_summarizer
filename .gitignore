@@ -4,5 +4,7 @@ node_modules
 dist
 .vercel
 
-# API Keys and Secrets
+# API Keys and Secrets (only in source js folder, not public)
 js/config.js
+!public/js/config.js
+
