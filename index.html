@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document Summarizer - AI-Powered Analysis</title>
+    <meta name="description" content="AI-powered legal document summarizer for Indian courts using Google Gemini">
+    <link rel="stylesheet" href="css/dark-theme.css">
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+
+    <!-- Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>⚖️ Legal Document Summarizer</h1>
+            <p>AI-powered analysis for Indian Legal Documents</p>
+        </header>
+
+        <!-- Model Selection Guide -->
+        <section class="model-guide glass">
+            <h3>📊 Select AI Model</h3>
+            <div class="model-select-wrapper">
+                <select id="model-select" class="model-select">
+                    <option value="gemini-2.0-flash" selected>
+                        🚀 Gemini 2.0 Flash (Recommended) - &lt;10 pages | 1500 requests/day | Fastest
+                    </option>
+                    <option value="gemini-1.5-flash">
+                        ⚡ Gemini 2.5 Flash - &lt;40 pages | 1000 requests/day | Balanced
+                    </option>
+                    <option value="gemini-1.5-pro">
+                        🎯 Gemini 2.5 Pro - &lt;75 pages | 50 requests/day | Most Capable
+                    </option>
+                </select>
+            </div>
+            <div class="quota-warning">
+                ⚠️ <strong>Daily Limits:</strong> Each model has a daily request quota. Chatbot conversations and
+                summaries both count toward your limit.
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-boxes">
+                <!-- PDF with Text Only -->
+                <div class="upload-box glass" id="upload-box-1" data-type="pdf-text">
+                    <div class="upload-box-content">
+                        <div class="upload-icon">📄</div>
+                        <h3>PDF with Text</h3>
+                        <p>Standard PDF with selectable text</p>
+                        <input type="file" id="file-input-1" accept="application/pdf" />
+                        <div class="file-name" id="file-name-1"></div>
+                    </div>
+                </div>
+
+                <!-- PDF with Images + Text (OCR) -->
+                <div class="upload-box glass" id="upload-box-2" data-type="pdf-ocr">
+                    <div class="upload-box-content">
+                        <div class="upload-icon">🖼️</div>
+                        <h3>PDF + Images</h3>
+                        <p>Scanned PDFs with OCR support</p>
+                        <input type="file" id="file-input-2" accept="application/pdf" />
+                        <div class="file-name" id="file-name-2"></div>
+                    </div>
+                </div>
+
+                <!-- Single Images -->
+                <div class="upload-box glass" id="upload-box-3" data-type="image">
+                    <div class="upload-box-content">
+                        <div class="upload-icon">🎴</div>
+                        <h3>Single Image</h3>
+                        <p>JPG, PNG image files</p>
+                        <input type="file" id="file-input-3" accept="image/*" />
+                        <div class="file-name" id="file-name-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summarize Button -->
+            <button id="summarize-btn" class="btn-primary" disabled>
+                <span id="btn-text">Summarize Document</span>
+                <div id="loader" class="loader hidden"></div>
+            </button>
+        </section>
+
+        <!-- Error Message -->
+        <div id="error-container" class="error-message hidden">
+            <span id="error-message"></span>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-container" class="success-message hidden">
+            <span id="success-message"></span>
+        </div>
+
+        <!-- Split Layout: Summary + Chatbot -->
+        <div class="split-layout">
+            <!-- Summary Panel -->
+            <section class="summary-panel glass">
+                <h2>📋 Summary</h2>
+                <div id="summary-content" class="summary-content empty">
+                    <p>Your document summary will appear here after processing.</p>
+                </div>
+            </section>
+
+            <!-- Chatbot Panel -->
+            <section class="chatbot-panel glass">
+                <h2>💬 Ask Questions</h2>
+                <div id="chat-messages" class="chat-messages">
+                    <div class="chat-message empty">
+                        <p>Generate a summary first, then ask questions about your document here.</p>
+                    </div>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chat-input" class="chat-input"
+                        placeholder="Ask a question about the document..." disabled />
+                    <button id="chat-send-btn" class="btn-send" disabled>Send</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/config.js"></script>
+    <script src="js/pdf-processor.js"></script>
+    <script src="js/upload-manager.js"></script>
+    <script src="js/ai-service.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

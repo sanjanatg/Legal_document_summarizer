@@ -1,0 +1,8 @@
+node_modules
+.env
+.DS_Store
+dist
+.vercel
+
+# API Keys and Secrets
+js/config.js

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key Setup - Legal Document Summarizer</title>
+    <link rel="stylesheet" href="css/dark-theme.css">
+    <style>
+        .setup-container {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .api-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Inter', monospace;
+            margin: 1rem 0;
+        }
+
+        .api-input:focus {
+            outline: none;
+            border-color: var(--accent-violet);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .info-box {
+            background: rgba(124, 58, 237, 0.1);
+            border-left: 3px solid var(--accent-violet);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .step {
+            margin: 1.5rem 0;
+        }
+
+        .step h3 {
+            color: var(--accent-violet-light);
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            color: var(--accent-violet-light);
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="setup-container glass">
+            <h1 style="text-align: center; margin-bottom: 2rem;">🔑 API Key Setup</h1>
+
+            <div class="info-box">
+                <strong>⚠️ API Key Required</strong><br>
+                You need a Google Gemini API key to use this application.
+            </div>
+
+            <div class="step">
+                <h3>Step 1: Get Your API Key</h3>
+                <p>Visit <a href="https://aistudio.google.com/app/apikey" target="_blank"
+                        style="color: var(--accent-violet-light);">Google AI Studio</a> and create a free API key.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Enter Your API Key</h3>
+                <input type="text" id="api-key-input" class="api-input" placeholder="AIza..." />
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Save Configuration</h3>
+                <button id="save-btn" class="btn-primary">
+                    Save & Continue to App
+                </button>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <strong>📝 Manual Setup (Alternative)</strong><br>
+                Open <code>js/config.js</code> and replace the API_KEY value with your actual key.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('save-btn').addEventListener('click', () => {
+            const apiKey = document.getElementById('api-key-input').value.trim();
+
+            if (!apiKey) {
+                alert('Please enter an API key');
+                return;
+            }
+
+            if (!apiKey.startsWith('AIza')) {
+                alert('Invalid API key format. Google API keys typically start with "AIza"');
+                return;
+            }
+
+            // Save to localStorage
+            localStorage.setItem('gemini_api_key', apiKey);
+
+            alert('✅ API key saved! Redirecting to the application...');
+            window.location.href = 'index.html';
+        });
+
+        // Load existing key if present
+        const savedKey = localStorage.getItem('gemini_api_key');
+        if (savedKey) {
+            document.getElementById('api-key-input').value = savedKey;
+        }
+    </script>
+</body>
+
+</html>
