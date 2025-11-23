@@ -2,7 +2,8 @@
 // API Configuration
 const CONFIG = {
     API_BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/models',
-    API_KEY: localStorage.getItem('gemini_api_key') || 'AIzaSyCBVCpxQsmhghspdpTGzqPzuTcBCe2BH9s', // Your Gemini API key
+    // API Key priority: 1. Environment variable, 2. localStorage, 3. Error message
+    API_KEY: import.meta.env.VITE_GEMINI_API_KEY || localStorage.getItem('gemini_api_key') || '',
     
     // Model configurations with limits (Production models)
     MODELS: {
