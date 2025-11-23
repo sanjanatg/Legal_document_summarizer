@@ -1,12 +1,11 @@
 # ⚖️ Legal Document Summarizer
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Status](https://img.shields.io/badge/status-Active-success.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-lightgrey.svg)
+
 
 **Legal Document Summarizer** is a powerful, AI-driven web application designed to simplify the analysis of Indian legal documents. Built with the **Google Gemini API**, it transforms complex legal judgments, case files, and contracts into structured, easy-to-understand summaries.
 
 Designed for legal professionals, students, and anyone needing quick insights into legal texts.
+![Uploading image.png…]()
 
 ---
 
