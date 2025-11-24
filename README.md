@@ -142,7 +142,7 @@ legal-document-summarizer/
 
 └── README.md # Project documentation
 
-text
+
 
 ---
 
