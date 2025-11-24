@@ -110,21 +110,36 @@ text
 ## 📂 Project Structure
 
 legal-document-summarizer/
+
 ├── css/
+
 │ └── dark-theme.css # Styling and glassmorphism effects
+
 ├── js/
+
 │ ├── ai-service.js # Gemini API integration
+
 │ ├── chatbot.js # Chat interface logic
+
 │ ├── config.js # App configuration
+
 │ ├── main.js # Entry point
+
 │ ├── pdf-processor.js # PDF text extraction & OCR
+
 │ └── upload-manager.js # File handling logic
+
 ├── public/
 │ └── js/ # Production build copies
+
 ├── index.html # Main application interface
+
 ├── setup.html # First-time setup page
+
 ├── package.json # Dependencies
+
 ├── vite.config.js # Build configuration
+
 └── README.md # Project documentation
 
 text
