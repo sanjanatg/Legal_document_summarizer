@@ -2,8 +2,8 @@
 // API Configuration
 const CONFIG = {
     API_BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/models',
-    // API Key priority: 1. Vite env var (Vercel), 2. localStorage (user setup), 3. Empty
-    API_KEY: import.meta.env.VITE_GEMINI_API_KEY || localStorage.getItem('gemini_api_key') || '',
+    // API Key from localStorage (set via setup.html) or environment variable
+    API_KEY: localStorage.getItem('gemini_api_key') || '',
     
     // Helper function to check if API key is configured
     isConfigured: function() {
