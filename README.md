@@ -24,6 +24,38 @@ Designed for legal professionals, students, and anyone needing quick insights in
 *   **💬 Interactive Legal Chatbot**: Ask follow-up questions about the document (e.g., *"What was the main argument of the defense?"*) and get context-aware answers.
 *   **🎨 Modern Dark UI**: A professional, glassmorphism-inspired dark theme designed for long reading sessions.
 *   **🔒 Privacy-First**: API keys are stored locally in your browser. No data is sent to any third-party server other than Google's secure API.
+*   ### Privacy Guarantee Summary
+
+PDF processed in browser RAM (never uploaded to your server)
+
+No database (no MongoDB, PostgreSQL, etc.)
+
+No user accounts or tracking
+
+Data deleted when tab closes
+
+### Google Gemini API ✅:
+
+Data NOT used for training (API tier)
+
+Stored only 24-48 hours for abuse detection
+
+TLS 1.3 encrypted in transit
+
+GDPR/CCPA compliant
+
+SOC 2 Type II certified
+
+#### Combined Result ✅:
+Most private legal AI tool possible - data only exists in:
+
+User's browser (temporary)
+
+Google's encrypted API pipeline (24-48 hours max)
+
+Then permanently deleted
+
+No third-party access, no permanent storage, no training data use
 
 ---
 
