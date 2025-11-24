@@ -28,7 +28,6 @@ Designed for legal professionals, students, and anyone needing quick insights in
 
 ### Privacy Guarantee
 
-**Your Code** ✅:
 * PDF processed in browser RAM (never uploaded to your server)
 * No database (no MongoDB, PostgreSQL, etc.)
 * No user accounts or tracking
