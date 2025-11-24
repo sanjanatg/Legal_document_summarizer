@@ -14,6 +14,24 @@ const AppState = {
 function initApp() {
     console.log('🚀 Initializing Legal Document Summarizer...');
     
+    // Check if API key is configured
+    if (!CONFIG.isConfigured()) {
+        console.warn('⚠️ No API key configured');
+        const setupUrl = CONFIG.getSetupUrl();
+        
+        // Show user-friendly message
+        const shouldRedirect = confirm(
+            '⚠️ API Key Required\n\n' +
+            'You need to set up your Google Gemini API key to use this application.\n\n' +
+            'Click OK to go to the setup page, or Cancel to stay here.'
+        );
+        
+        if (shouldRedirect) {
+            window.location.href = setupUrl;
+            return;
+        }
+    }
+    
     // Initialize modules
     UploadManager.init();
     Chatbot.init();

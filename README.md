@@ -33,6 +33,7 @@ Designed for legal professionals, students, and anyone needing quick insights in
 *   **AI Engine**: [Google Gemini API](https://ai.google.dev/) (Multimodal capabilities)
 *   **PDF Processing**: [PDF.js](https://mozilla.github.io/pdf.js/)
 *   **Markdown Rendering**: [Marked.js](https://marked.js.org/)
+*   **Build Tool**: [Vite](https://vitejs.dev/)
 *   **Icons**: Native Emoji & CSS Shapes
 
 ---
@@ -42,6 +43,7 @@ Designed for legal professionals, students, and anyone needing quick insights in
 ### Prerequisites
 
 *   A modern web browser (Chrome, Edge, Firefox, Safari).
+*   **Node.js** (v16 or higher) and **npm**
 *   A **Google Gemini API Key**. [Get it for free here](https://aistudio.google.com/app/apikey).
 
 ### Installation
@@ -52,35 +54,21 @@ Designed for legal professionals, students, and anyone needing quick insights in
     cd legal-document-summarizer
     ```
 
-2.  **Configure your API key**
-    
-    **Option A: Using Setup Page (Recommended)**
-    *   Open `setup.html` in your browser
-    *   Paste your API key
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Configure Your API Key**
+    *   Visit `http://localhost:5173/setup.html` in your browser
+    *   Enter your Google Gemini API key
     *   Click "Save & Continue to App"
-    
-    **Option B: Manual Configuration**
-    *   Rename `js/config.example.js` to `js/config.js`
-    *   Open `js/config.js`
-    *   Replace `YOUR_API_KEY_HERE` with your actual API key
-    ```javascript
-    API_KEY: 'AIzaSyA...' // Your actual key here
-    ```
-
-3.  **Run the Application**
-    You can run it using a simple local server:
-
-    **Using Python:**
-    ```bash
-    python -m http.server 8000
-    ```
-    
-    **Using Node.js (npx):**
-    ```bash
-    npx http-server -p 8000
-    ```
-
-    Then open `http://localhost:8000` in your browser.
+    *   Your API key is securely stored in your browser's localStorage
 
 ---
 
@@ -109,10 +97,29 @@ legal-document-summarizer/
 │   ├── main.js             # Entry point
 │   ├── pdf-processor.js    # PDF text extraction & OCR
 │   └── upload-manager.js   # File handling logic
+├── public/
+│   └── js/                 # Production build copies
 ├── index.html              # Main application interface
 ├── setup.html              # First-time setup page
+├── package.json            # Dependencies
+├── vite.config.js          # Build configuration
 └── README.md               # Project documentation
 ```
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
+1. Push your code to GitHub
+2. Visit [Vercel Dashboard](https://vercel.com/dashboard)
+3. Click "Import Project" and select your repository
+4. Click "Deploy"
+
+**No environment variables needed!** Users will set up their own API keys via `setup.html`.
+
+See [VERCEL_ENV_SETUP.md](VERCEL_ENV_SETUP.md) for detailed deployment instructions.
 
 ---
 
@@ -120,6 +127,7 @@ legal-document-summarizer/
 
 *   **API Quotas**: Be mindful of the daily limits for each Gemini model. The app provides a guide to help you choose.
 *   **Document Privacy**: This is a client-side application. Your documents are processed in memory and sent directly to Google's API. They are not stored on any intermediate server.
+*   **API Key Security**: API keys are stored in your browser's localStorage. They are never sent to any server except Google's Gemini API.
 
 ---
 
